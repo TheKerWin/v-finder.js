@@ -1,2 +1,2 @@
 # v-finder.js
-An opensource tool to detect vulnerabilities in JavaScript code. 
+An opensource tool for detecting vulnerabilities in JavaScript code. 
