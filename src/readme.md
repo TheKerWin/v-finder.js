@@ -36,7 +36,7 @@ Install the following modules that this tool depends on before use. Install the 
 
 ## Usage
 
-To start the tool's scan, type this into the terminal: ```node sst.js <path/to/target/directory> <options> <filter>```
+To start the tool's scan, type this into the terminal: ```node vfinder.js <path/to/target/directory> <options> <filter>```
 
 `` 	<options>:
 		--help/--h:		How to run the tool.
