@@ -19,8 +19,6 @@ The `log.json` file will contain the following JSON object:
     - files \[Array\]: Contains objects tied to individual files within the directory in which sink(s) were found.
       - name \[String\]: File name.
       - package \[String\]: Containing package name, if run with automated workflow.
-      - version \[String\]: Full version string of the package, usually in the format of 'packagename-version'.
-      - state \[String\]: Descriptor for vulnerability state (Vulnerable, SafeBefore, SafeAfter).
       - vulns \[Array\]: Contains objects tied to individual sinks found within the file.
         - type \[Array\]: Contains a \[String\] and an \[Int\] describing the sink type (js_function, js_extra, ...) and the amount of this type found within the file.
         - line \[Array\]: Contains the line numbers on which this sink type was found. The length of this array is the value at index 1 of the `type` array.
