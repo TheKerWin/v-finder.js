@@ -6,21 +6,6 @@ const injections = require("./signatures.js").inj;
 const packageData = require("./signatures.js").pkg;
 const types = require("./signatures.js").typ;
 
-var fileIsInAutomatedSearch = function(fileName) {
-	var foundPos = fileName.search("new_package_src");
-	if (foundPos == -1) { return false; }
-	else {
-		var subPath = fileName.substring(foundPos + 16);
-		var data = subPath.split("\\");
-		return {
-			cwe: data[0],
-			package: data[1],
-			state: data[2],
-			version: data[3]
-		};
-	}
-};
-
 var buildLinkedASTFromFile = function(filePath) { // builds and returns an AST
 	let source = fs.readFileSync(filePath).toString('utf-8');
 	let ast = acorn.parse(source, {ecmaVersion: 6, locations: true, allowHashBang: true, allowImportExportEverywhere: true,}); //sourceType: 'module',});
@@ -136,11 +121,7 @@ const vulnerabilityFinder = function(tree, dir, type="") {
 const dirScan = function(curpath, curfiles){
 	var data = {
 		dir   : curpath,
-		files : [],
-		cwe	  : null,
-		package : null,
-		state : null,
-		version : null
+		files : []
 	};
 
 	for (var i = 0; i < curfiles.length; i++) {
@@ -157,14 +138,6 @@ const dirScan = function(curpath, curfiles){
 				found = vulnerabilityFinder(ast, data.dir, vFilter);
 				if(found.length !== 0) {
 					container = [];
-
-					var fileData = fileIsInAutomatedSearch(data.dir);
-					if (fileData) {
-						data.cwe = fileData.cwe;
-						data.package = fileData.package;
-						data.state = fileData.state;
-						data.version = fileData.version;
-					}
 
 					container.push({
 						type : [found[0], 1],
@@ -229,7 +202,6 @@ if(vFilter === "--help" || vFilter === "--h"){
 	if (vFilter === "--c" || vFilter === "--clear" && process.argv.length === 5) {
 		fs.closeSync(fs.openSync("log.json", 'w'));
 		fs.closeSync(fs.openSync("review.json", 'w'));
-		fs.closeSync(fs.openSync("summary.txt", 'w'));
 		vFilter = process.argv[4];
 	}
 	try {
@@ -242,13 +214,6 @@ if(vFilter === "--help" || vFilter === "--h"){
 		}
 		if (fs.existsSync("review.json")) {
 			stream = fs.readFileSync("review.json", "utf8");
-			if (stream == '') stream = "[]";
-		}else {
-			fs.openSync("review.json", "a");
-			stream = "[]";
-		}
-		if (fs.existsSync("summary.txt")) {
-			stream = fs.readFileSync("summary.txt", "utf8");
 			if (stream == '') stream = "[]";
 		}else {
 			fs.openSync("review.json", "a");
