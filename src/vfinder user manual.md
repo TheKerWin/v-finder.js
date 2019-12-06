@@ -1,4 +1,4 @@
-#Vulnerability Finder User Manual
+# Vulnerability Finder User Manual
 
 This manual will go over how to run the vulnerability finder, read the output, and analyze the sink locations. The analysis will determine if the sink location is a true positive or false positive. The package this tool will go through as an example is `Prototype @ 0.0.5`. Documentation on the package can be found [here](https://www.npmjs.com/package/prototype).
 
