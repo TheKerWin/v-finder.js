@@ -6,7 +6,7 @@
 
 ## Within this directory:
 
-### bench and bench_packages:
+### bench and bench_2:
 
 ​	These directories contain javascript examples to test our tool to ensure accurate findings. 
 
