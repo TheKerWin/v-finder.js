@@ -90,4 +90,32 @@ The `log.json` file will contain the following JSON object:
 
 ## Example Usage
 
-Run the tool as follows: `node vfinder.js ./`. This will scan the current directory and show the results from the bench directories.
+Run the tool as follows: `node vfinder.js ./`. This will scan the current directory and show the results from the bench directories. Here is a sample of one of the results:
+
+```{
+        "runStarted": "Fri Dec 06 2019 11:44:10 GMT-0500 (Eastern Standard Time)",
+        "results": [
+            {
+                "dir": "/Users/alexoneill/Documents/GitHub/v-finder.js/src/bench",
+                "files": [
+                    {
+                        "name": "b01c.js",
+                        "vulns": [
+                            {
+                                "type": [
+                                    "os_cmd",
+                                    5
+                                ],
+                                "line": [
+                                    4,
+                                    5,
+                                    10,
+                                    19,
+                                    28
+                                ]
+                            }
+                        ]
+                    },```
+```
+
+Above, the object returns the date and time of when the tool was run. In the results, it shows the directroy of the files that the tool returned positive findings on. In the files attribute, the name of the file is displayed and under that the type(s) and line number(s) of the potential sink's location.
