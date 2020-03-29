@@ -1,0 +1,17 @@
+{
+  "name": "src",
+  "version": "1.0.0",
+  "description": "​\tThis package can search a given directory for JavaScript files and return any potential sinks, or vulnerable code that could be exploitable. The information is placed in a json file that tells the user the time of the run, the file location, the type of vulnerability, and the line number(s).",
+  "main": "signatures.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "acorn": "^7.1.0",
+    "estree-walker": "^1.0.0",
+    "fs": "0.0.1-security",
+    "path": "^0.12.7"
+  }
+}
