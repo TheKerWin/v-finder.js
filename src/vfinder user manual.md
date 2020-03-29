@@ -4,7 +4,9 @@ This manual will go over how to run the vulnerability finder, read the output, a
 
 ## How to Run
 
+### CLI Arguments
 
+### Video Example
 
 ## Output
 
