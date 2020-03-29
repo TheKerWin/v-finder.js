@@ -9,7 +9,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "acorn": "^7.1.0",
+    "acorn": "^7.1.1",
     "estree-walker": "^1.0.0",
     "fs": "0.0.1-security",
     "path": "^0.12.7"
